@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/combos', function () {
+    $comboz = [
+        ['nombre' => 'Pizzaroni', 'bebida' => 'CocaCola', 'complemento' => 'Palitos de queso  y arequipe'],
+        ['nombre' => 'Pizzaiana', 'bebida' => 'Pepsi', 'complemento' => 'Chocomaní'],
+        ['nombre' => 'Pizzollo', 'bebida' => 'Sprite', 'complemento' => 'Cupcake'],
+
+    ];
+    return view('combos', ['comboz' => $comboz]);
+});
