@@ -13,7 +13,7 @@
         <div class="flex mt-16 sm:flex-col lg:flex-row justify-evenly">
             <div class="px-6 sm:mb-5">
                 <a href="#"><img class="w-52 h-36 mx-auto mb-5" src="img/pizzamenu.png" alt="Pizzas"></a>
-                <a class="my-2 text-black" href="#">Pizzas</a>
+                <a class="my-2 text-black" href="{{ route('pizzas.index') }}">Pizzas</a>
             </div>
         
             <div class="px-6 sm:mb-5">

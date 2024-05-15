@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +24,8 @@ Route::get('/menu', function () {
     return view('menu');
 })->name('menu');
 
-// Route::resource('/menu/productos', ProductoController::class);
-// Route::resource('/categorias', CategoriaController::class);
+Route::resource('/menu/pizzas', PizzaController::class);
+Route::resource('/categorias', CategoriaController::class);
 
 Route::get('/combos', function () {
     return view('combos');
