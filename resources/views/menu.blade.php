@@ -1,6 +1,6 @@
 @extends('layouts.app2')
 @section('titulo','menu')
-@section('contenido')
+@section('content')
     <div class="py-24 bg-orange-300 text-center">
         <h2 class="text-5xl text-black uppercase mb-4">Nuestro menu</h2>
         <p class="text-xl text-black mb-8 sm:px-0 md:px-20 lg:px-60">
@@ -26,5 +26,5 @@
                 <a class="my-2 text-black" href="#">Complementos</a>
             </div>
         </div>  
-    </div>
+    </div> 
 @endsection

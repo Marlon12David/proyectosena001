@@ -1,7 +1,7 @@
 @extends('layouts.app2')
 @section('titulo','acerca de nosotros')
-@section('contenido')
-    <div class="py-24 text-center">
+@section('content')
+    <div class="bg-white py-24 text-center">
         <h2 class="text-5xl text-black uppercase mb-5">Acerca de nosotros</h2>
         <p class="text-xl text-black mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
