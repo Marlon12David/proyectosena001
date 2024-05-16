@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,10 @@ Route::get('/promos', function () {
 Route::get('/aboutus', function () {
     return view('aboutus');
 })->name('aboutus');
+
+
+Route::resource('/pedidos', PedidoController::class)->except(['create']);
+Route::get('/pedidos/create/{pizza}', [PedidoController::class, 'create'])->name('pedidos.create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

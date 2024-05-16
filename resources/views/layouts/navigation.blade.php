@@ -17,13 +17,13 @@
                             <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
                                 {{ __('Categorias') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('productos.index')" :active="request()->routeIs('productos.index')">
+                            <x-nav-link :href="route('pizzas.index')" :active="request()->routeIs('pizzas.index')">
                                 {{ __('Pizzas') }}
                             </x-nav-link>
-                            {{-- <x-nav-link :href="route('menu')" :active="request()->routeIs('menu')">
-                                {{ __('Complementos') }}
+                            <x-nav-link :href="route('pedidos.index')" :active="request()->routeIs('pedidos.index')">
+                                {{ __('Pedidos') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('menu')" :active="request()->routeIs('menu')">
+                            {{-- <x-nav-link :href="route('menu')" :active="request()->routeIs('menu')">
                                 {{ __('Bebidas') }}
                             </x-nav-link>
                             <x-nav-link :href="route('combos')" :active="request()->routeIs('combos')">
