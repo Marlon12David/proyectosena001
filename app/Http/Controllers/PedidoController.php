@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use App\Models\Pizza;
+use App\Models\User;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -18,6 +21,14 @@ class PedidoController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    public function checkout()
+    {
+        $cartItems = Cart::instance('cart')->content();
+        
+        return view('pedidos.checkout', ['cartItems' => $cartItems]);
+    }
+
     public function index()
     {
         //si el usuario es admin, mostrar todos los pedidos (con paginación) sino mostrar solo los pedidos del usuario logueado
@@ -34,7 +45,7 @@ class PedidoController extends Controller
      */
     public function create(Pizza $pizza)
     {
-        return view('pedidos.create', ['pizza' => $pizza]);
+        //
     }
 
     /**
@@ -42,24 +53,30 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $pizza = Pizza::find($request->pizza_id);
+        $user = Auth::user();
+        Cart::instance('cart')->content();
         //Guardar el pedido en la tabla pedidos
         $pedido = Pedido::create([
+            'user_id' => $user->id,
+            'direccion' => $user->address,
+            'metodo_pago' => $request->metodo_pago,
+            'total' => Cart::total(),
             'fecha' => now(),
             'estado' => 'pendiente',
-            'user_id' => auth()->user()->id,
+            
+            'total' => Cart::total(),
         ]);
         //Guardar los pizzas en la tabla pivote (pedido_pizza)
-        $pedido->pizzas()->attach($pizza->id, [
-            'cantidad' => $request->cantidad,
-            'precio' => $pizza->precio,
-        ]);
+        foreach(Cart::instance('cart')->content() as $item){
+            $pedido->pizzas()->attach($item->id, [
+                'cantidad' => $item->qty,
+                'precio' => $item->price,
+            ]);
+        }
 
-        //Restamos la cantidad de pizzas pedidos al stock
-        $pizza->stock -= $request->cantidad;
-        $pizza->save();
-
-        return to_route('pizzas.index')->with('info', 'Pedido realizado con éxito');
+        Cart::instance('cart')->destroy();
+        
+        return to_route('pedidos.index')->with('info', 'Pedido realizado con éxito');
     }
 
     /**
@@ -67,7 +84,8 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        //
+        $pedidos = Pedido::with('pizzas')->get();
+        return view('pedidos.show', compact('pedido'));
     }
 
     /**

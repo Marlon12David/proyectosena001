@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->dateTime('fecha');
+            $table->string('metodo_pago');
+            $table->string('direccion');
             $table->string('estado', 50);
+            $table->integer('total');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

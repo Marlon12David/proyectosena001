@@ -6,10 +6,28 @@
         <div class="flex justify-center">
             <div class="card w-96 shadow-2xl bg-base-100">
                 <div class="card-body">
-                    <p>Cantidad: {{$pedido->pizzas[0]->pivot->cantidad}}</p>
-                    <p>Precio: {{ '$'.number_format($pedido->pizzas[0]->pivot->precio, 0, ',', '.') }}</p>
-                    <p>Total: {{ '$'.number_format($pedido->pizzas[0]->pivot->precio * $pedido->pizzas[0]->pivot->cantidad, 0, ',', '.') }}</p>
-                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pedido->pizzas as $pizza)
+                                <tr class="border-b-2">
+                                    <td class="px-2 text-center">{{ $pizza->nombre }}</td>
+                                    <td class="px-2 text-center">{{ $pizza->pivot->cantidad }}</td>
+                                    <td class="px-2 text-center">${{ number_format($pizza->precio, 0, ',', '.') }}</td>
+                                    <td class="px-2 text-center">${{ number_format($pizza->precio * $pizza->pivot->cantidad, 0, ',', '.') }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <p></p>
+                        <p class="">Total: ${{ number_format($pedido->total, 0, ',', '.') }}</p>
                     <form action="{{route('pedidos.update', $pedido)}}" method="POST">
                         @csrf
                         @method('put')

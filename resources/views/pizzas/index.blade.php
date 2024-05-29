@@ -49,7 +49,14 @@
                                                 @endif
                                     @else
                                         {{-- si el usuario es cliente muestra realizar una orden --}}
-                                        <a href="{{ route('pedidos.create', $pizza->id) }}" class="btn btn-primary btn-xs">Ordenar</a>
+                                        <form action="{{ route('carrito.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $pizza->id }}">
+                                            <input type="hidden" name="name" value="{{ $pizza->nombre }}">
+                                            <input type="number" placeholder="1" min="1" name="quantity" id="qty" value="1" class="w-12 text-black">
+                                            <input type="hidden" name="price" value="{{ $pizza->precio }}">
+                                            <button type="submit" class="btn btn-primary btn-xs text-sm">Agregar al carrito</button>
+                                        </form>
                                     @endif
                                 </div>
                             </div>

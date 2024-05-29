@@ -21,16 +21,16 @@
 
       <div class="flex mt-16 sm:flex-col lg:flex-row">
             <div class="px-6 sm:mb-5">
-                <img class="w-52 h-36 mx-auto" src="img/pizzamenu.png" alt="Pizzas">
+                <img class="w-52 h-36 mx-auto" src="images/pizzamenu.png" alt="Pizzas">
                 <h3 class="my-2 text-white">Pizzas</h3>
                 <p class="mb-4 text-white">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
-                <a href="#" class="bg-orange-300 text-black uppercase py-3 px-8">Conoce más</a>
+                <a href="{{ route('pizzas.index') }}" class="bg-orange-300 text-black uppercase py-3 px-8">Conoce más</a>
             </div>
       
           <div class="px-6 sm:mb-5">
-                <img class="w-52 h-36 mx-auto" src="img/bebidasmenu.jpg" alt="Bebidas">
+                <img class="w-52 h-36 mx-auto" src="images/bebidasmenu.jpg" alt="Bebidas">
                 <h3 class="my-2 text-white">Bebidas</h3>
                 <p class="mb-4 text-white">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -39,7 +39,7 @@
           </div>
 
             <div class="px-6 sm:mb-5">
-                <img class="w-52 h-36 mx-auto" src="img/complementomenu.jpg" alt="Complementos">
+                <img class="w-52 h-36 mx-auto" src="images/complementomenu.jpg" alt="Complementos">
                 <h3 class="my-2 text-white">Complementos</h3>
                 <p class="mb-4 text-white">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -60,7 +60,7 @@
 
         <div class="flex mt-16 sm:flex-col lg:flex-row">
             <div class="px-6 sm:mb-5">
-                <img class="w-52 h-36 mx-auto" src="img/pizzapromocion.jpg" alt="Pizzas">
+                <img class="w-52 h-36 mx-auto" src="images/pizzapromocion.jpg" alt="Pizzas">
                 <h3 class="my-2 text-black">Comobo 1</h3>
                 <p class="mb-4 text-black">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -69,7 +69,7 @@
             </div>
         
             <div class="px-6 sm:mb-5">
-                <img class="w-52 h-36 mx-auto" src="img/pizzapromocion.jpg" alt="Bebidas">
+                <img class="w-52 h-36 mx-auto" src="images/pizzapromocion.jpg" alt="Bebidas">
                 <h3 class="my-2 text-black">Comobo 2</h3>
                 <p class="mb-4 text-black">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -78,7 +78,7 @@
             </div>
 
             <div class="px-6 sm:mb-5">
-                <img class="w-52 h-36 mx-auto" src="img/pizzapromocion.jpg" alt="Complementos">
+                <img class="w-52 h-36 mx-auto" src="images/pizzapromocion.jpg" alt="Complementos">
                 <h3 class="my-2 text-black">Comobo 3</h3>
                 <p class="mb-4 text-black">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -112,7 +112,7 @@
 
         <div class="flex sm:flex-col lg:flex-row">
             <div class="py-4 px-14">
-                <img class="mx-auto mb-5" src="img/mision.jpg" alt="Mision">
+                <img class="mx-auto mb-5" src="images/mision.jpg" alt="Mision">
                 <h3 class="text-4xl text-black uppercase">Mision</h3>
                 <p class="text-xl my-6 text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Nisi tempore molestias cum amet? Numquam optio voluptas 
@@ -123,7 +123,7 @@
             </div>
 
             <div class="py-4 px-14">
-                <img class="mx-auto mb-5" src="img/vision.jpg" alt="Vision">
+                <img class="mx-auto mb-5" src="images/vision.jpg" alt="Vision">
                 <h3 class="text-4xl text-black uppercase">Vision</h3>
                 <p class="text-xl my-6 text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Nisi tempore molestias cum amet? Numquam optio voluptas 

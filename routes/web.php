@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PizzaController;
@@ -21,11 +22,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/menu', function () {
-    return view('menu');
-})->name('menu');
+// Route::get('/menu', function () {
+//     return view('menu');
+// })->name('menu');
 
-Route::resource('/menu/pizzas', PizzaController::class);
+Route::resource('/pizzas', PizzaController::class);
 Route::resource('/categorias', CategoriaController::class);
 
 Route::get('/combos', function () {
@@ -40,9 +41,15 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 })->name('aboutus');
 
+Route::get('/carrito', [CartController::class, 'index'])->name('carrito.index');
+Route::post('/carrito', [CartController::class, 'store'])->name('carrito.store');
+Route::post('/carrito/increase', [CartController::class, 'increaseQuantity'])->name('carrito.increase');
+Route::post('/carrito/decrease', [CartController::class, 'decreaseQuantity'])->name('carrito.decrease');
+Route::post('/carrito/removeItem', [CartController::class, 'removeItem'])->name('carrito.remove');
+Route::delete('/carrito/destroy', [CartController::class, 'destroy'])->name('carrito.destroy');
 
-Route::resource('/pedidos', PedidoController::class)->except(['create']);
-Route::get('/pedidos/create/{pizza}', [PedidoController::class, 'create'])->name('pedidos.create');
+Route::get('/checkout', [PedidoController::class, 'checkout'])->name('pedido.checkout');
+Route::resource('/pedidos', PedidoController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
