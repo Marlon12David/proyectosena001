@@ -63,6 +63,7 @@ class PedidoController extends Controller
             'total' => Cart::total(),
             'fecha' => now(),
             'estado' => 'pendiente',
+
         ]);
         //Guardar los pizzas en la tabla pivote (pedido_pizza)
         foreach(Cart::instance('cart')->content() as $item){
